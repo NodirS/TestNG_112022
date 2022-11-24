@@ -9,11 +9,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 public class Waits {
 
@@ -46,6 +46,21 @@ public class Waits {
 
         usernameInput.sendKeys("Bolta");
         Thread.sleep(2000);
+
+    }
+
+    @Test
+    public void implicitWait() throws InterruptedException {
+
+        driver.get("http://practice.cybertekschool.com/dynamic_loading/4");
+
+        Thread.sleep(2000);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(20));
+
+        WebElement element = driver.findElement(By.cssSelector("#finish"));
+        System.out.println(element.getText());
+
+
 
     }
 
