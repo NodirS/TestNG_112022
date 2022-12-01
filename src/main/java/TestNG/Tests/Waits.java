@@ -20,13 +20,13 @@ public class Waits {
     WebDriver driver;
 
     @BeforeMethod
-    public void setup(){
+    public void setup() {
         driver = WebDriverFactory.getDriver("chrome");
         driver.manage().window().maximize();
     }
 
     @AfterMethod
-    public void teardown(){
+    public void teardown() {
         driver.quit();
     }
 
@@ -59,7 +59,6 @@ public class Waits {
 
         WebElement element = driver.findElement(By.cssSelector("#finish"));
         System.out.println(element.getText());
-
 
 
     }
